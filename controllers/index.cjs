@@ -3,10 +3,10 @@ const { artworks, codeProjects } = require('../models/index.cjs')
 
 const controllers = {
   getArtworks(req, res){
-    res.json( successResponse(artworks, "You successfully retrieved artworks") );
+    res.json( successResponse(artworks) );
   },
   getCodeProjects(req, res){
-    res.json( successResponse(codeProjects, "You successfully retrieved code projects") );
+    res.json( successResponse(codeProjects) );
   }
 }
 

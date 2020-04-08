@@ -1,14 +1,10 @@
 let successResponse = (data, message) => {
-  return {
-      "status": 200,
-      "message": message || "Success",
-      "data": data 
-  }
+  return data 
 }
-let errorResponse = error => {
+let errorResponse = (error, message) => {
   return {
-      "status": 500,
-      "error": error
+      "error": error,
+      "message": message
   }
 }
 

@@ -5,17 +5,13 @@ const fs = require('fs')
 const routes  = require('./routes/index.cjs')
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 4000;
+const cors = require('cors')
 
+app.use(cors());
 // bodyparser setup
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/server', express.static('public'));
-app.use((req, res, next) => {
-  res.append('Access-Control-Allow-Origin', ['*']);
-  res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.append('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
 routes(app)
 
 app.listen(port, () => {
